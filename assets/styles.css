@@ -30,4 +30,18 @@ header{
 	background-size: cover;
 	position: fixed;
 	transition: all .1s ease-out;
+	z-index: 10
+}
+.stage-2 header{
+	animation: fade-out .2s ease-out .2s both;
+}
+@keyframes fade-out {
+	0%{opacity: 1;}
+	100%{opacity: 0;pointer-events: none;}
+}
+.opening{
+	position: fixed;
+	top: 0; left: 0;
+	z-index: 8;
+	width: 100vw; height: 100vh;
 }

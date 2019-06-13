@@ -1,3 +1,4 @@
-Source
+node_modules
+source
 *.psd
-node_modules/
+
