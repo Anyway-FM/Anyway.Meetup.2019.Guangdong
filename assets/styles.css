@@ -1,0 +1,33 @@
+@charset "utf-8";
+/*Designed by JJ Ying
+http://IconMoon.com*/
+*{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+	outline: none;
+	box-sizing: border-box;
+	-webkit-tap-highlight-color: transparent;
+}
+body{
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-family: 'Anyway Type', 'Myriad Pro', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+	text-align: left;
+	color: #333;
+	line-height: 1;
+}
+.wrapper{
+	height: 1300vh;
+}
+/* ~Header */
+header{
+	background: #a66048 url('header.jpg') no-repeat center center;
+	height: 100vh;
+	width: 100vw;
+	background-size: cover;
+	position: fixed;
+	transition: all .1s ease-out;
+}
