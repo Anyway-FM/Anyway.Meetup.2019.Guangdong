@@ -18,6 +18,7 @@ body{
 	text-align: left;
 	color: #333;
 	line-height: 1;
+	background: #000;
 }
 .wrapper{
 	height: 1300vh;
@@ -68,6 +69,7 @@ header{
 	background-image: url(op-logo.png);
 	z-index: 9;
 	opacity: 1;
+	/* animation: shaking 1s steps(8, start) infinite; */
 }
 /* ~Main */
 .main{
@@ -88,12 +90,12 @@ header{
 	animation: shaking 1s steps(8, start) infinite;
 }
 @keyframes shaking {
-	0%{transform: translate(-1px,1px) scale(1.005);}
-	20%{transform: translate(1px,1px)scale(0.995);}
-	40%{transform: translate(1px,-1px)scale(1);}
-	60%{transform: translate(-1px,.5px)scale(0.995);}
-	80%{transform: translate(1px,-.5px)scale(1.005);}
-	100%{transform: translate(-1px,1px)scale(1);}
+	0%{transform: translate(-.5px,.5px) scale(1);}
+	20%{transform: translate(.5px,.5px)scale(0.996);}
+	40%{transform: translate(.5px,-.5px)scale(1);}
+	60%{transform: translate(-.5px,0)scale(0.998);}
+	80%{transform: translate(.5px,.5px)scale(1.003);}
+	100%{transform: translate(-.5px,.5px)scale(1);}
 }
 .section img{
 	display: block;
@@ -106,7 +108,7 @@ header{
 }
 .s-1 img{
 	height: 100%;
-	transform: translateX(100vw) scale(1.05);
+	transform:  scale(0);
 	margin: 0 auto;
 }
 .s-1 .in img{
@@ -114,22 +116,23 @@ header{
 }
 /* ~S2 */
 .s-2 > .inner{
-	text-align: left;
+	text-align: center;
 }
 .s-2 img{
 	height: 100%;
-	transform: translateX(-200vw) scale(1.05);
+	transform: translateX(100vw) scale(1.05);
+	margin: 0 auto;
 }
 .s-2 .in img{
-	transform: scale(1.05);
+	transform:  scale(1.05);
 }
 /* ~S3 */
 .s-3 > .inner{
-	text-align: right;
+	text-align: left;
 }
 .s-3 img{
 	height: 100%;
-	transform: translateX(100vw) scale(1.05);
+	transform: translateX(-200vw) scale(1.05);
 }
 .s-3 .in img{
 	transform: scale(1.05);
@@ -139,11 +142,22 @@ header{
 	text-align: right;
 }
 .s-4 img{
+	height: 100%;
+	transform: translateX(100vw) scale(1.05);
+}
+.s-4 .in img{
+	transform: scale(1.05);
+}
+/* ~S5 */
+.s-5 > .inner{
+	text-align: right;
+}
+.s-5 img{
 	width: 100%;
 	position: absolute;
 	bottom: 0; left: 0;
 	transform: translateY(200vh) scale(1.05);
 }
-.s-4 .in img{
+.s-5 .in img{
 	transform: scale(1.05);
 }

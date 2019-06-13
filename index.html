@@ -36,7 +36,7 @@
 		</div>
 
 		<div class="full main" :style="{backgroundColor: '#'+mainBgColor}">
-			<div class="full section" v-for="n in 4" :class="'s-'+n">
+			<div class="full section" v-for="n in 5" :class="'s-'+n">
 				<div class="inner"  :class=" mainScroll > (n-1) * ( mainScrollPageH + mainScrollGap ) && mainScroll < n * mainScrollPageH + ( n - 1) * mainScrollGap ? 'in':'' ">
 					<img :src="'assets/s-'+n+'.png'"/>
 				</div>

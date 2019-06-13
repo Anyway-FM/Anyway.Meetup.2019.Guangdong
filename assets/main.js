@@ -75,7 +75,7 @@ function getSize(){
 
 window.onload = function(){
   getSize()
-  var ttt = setInterval(swtichBgColor, 1500);
+  var ttt = setInterval(swtichBgColor, 2500);
 }
 
 window.onresize = function(){
