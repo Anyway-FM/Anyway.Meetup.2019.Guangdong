@@ -8,19 +8,23 @@ var m = new Vue({
     headerScaleRatio: 1,
     headerFinalScale: 4.8,
     headerScrollDistance: 500,
+    smallScreenW: 379,
+    smallScreenH: 283,
+    smallScreenHPercent: 0.3,
     opScrollDistance: 1400,
     windowHeight: 1000,
     lastScroll: 0,
     scrollDirection: 1,
     tvOffsetX: 0,
-    tvFinalOffsetX: -92,
+    tvFinalOffsetX: -176,
     tvOffsetY: 0,
-    tvFinalOffsetY: -24,
+    tvFinalOffsetY: -60,
     opBgNum: 0,
     mainBgColor: '7c0808',
     mainScrollPageH: 900,
     mainScrollGap: 200,
-    mainScroll:0
+    mainScroll:0,
+    bgColorList: ['7c0808','8a9eae','b96605']
   },
   methods: {
     checkScroll: function(y){
@@ -51,31 +55,35 @@ var m = new Vue({
       }
 
       this.lastScroll = y
+    },
+    swtichBgColor() {
+      this.mainBgColor = bgColorList[Math.floor(Math.random() * bgColorList.length)]
+      console.log(m.mainBgColor)
     }
 
   }
 })
 
-var smallScreenW = 379
-var smallScreenH = 283
-var smallScreenHPercent = 0.3
+// m.smallScreenW = 379
+// m.smallScreenH = 283
+// m.smallScreenHPercent = 0.3
 var bgColorList = ['7c0808','8a9eae','b96605']
 
 function getSize(){
   m.windowWidth = window.innerWidth
   m.windowHeight = window.innerHeight
   if (window.innerWidth>window.innerHeight) {
-    m.headerFinalScale = window.innerWidth / ( window.innerHeight * smallScreenHPercent / smallScreenH * smallScreenW)
+    m.headerFinalScale = window.innerWidth / ( window.innerHeight * m.smallScreenHPercent / m.smallScreenH * m.smallScreenW)
   }
   else {
-    m.headerFinalScale = 1 / smallScreenHPercent
+    m.headerFinalScale = 1 / m.smallScreenHPercent
   }
   console.log(m.headerFinalScale)
 }
 
 window.onload = function(){
   getSize()
-  var ttt = setInterval(swtichBgColor, 2500);
+  var ttt = setInterval(m.swtichBgColor, 2000);
 }
 
 window.onresize = function(){
@@ -92,4 +100,5 @@ window.onscroll = function(){
 
 function swtichBgColor() {
   m.mainBgColor = bgColorList[Math.floor(Math.random() * bgColorList.length)]
+  console.log(m.mainBgColor)
 }

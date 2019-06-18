@@ -28,7 +28,14 @@
 </head>
 <body>
 	<div class="wrapper" :class=" [scrollDirection > 0 ? 'scroll-down':'scroll-up' , windowWidth>windowHeight?'layout-landscape':'layout-portrait', 'stage-'+stage]">
-		<header :style="{transform: 'scale(' + headerScaleRatio + ') translateX(' + tvOffsetX +'px) translateY(' + tvOffsetY +'px)'}" v-if="stage < 3" class="full"></header>
+		<header  v-if="stage < 3" class="full">
+			<div class="full wall" :style="{transform: 'scale(' + ((headerScaleRatio - 1)*0.2+1) + ') translateX(' + tvOffsetX +'px) translateY(' + tvOffsetY +'px)'}" ></div>
+			<div class="tv" :style="{
+				transform: 'translateX(' + ( windowWidth / 2 + tvOffsetX ) +'px) scale(' + headerScaleRatio + ') translateY(' + tvOffsetY +'px)'
+				}">
+				<div class="inner"></div>
+			</div>
+		</header>
 
 		<div class="full opening">
 			<div v-for="n in 7" class="full" :class="['op-bg-' + n, opBgNum == n ? 'current':'']" :style="{backgroundImage: 'url(assets/op-bg-' + n + '.jpg)' }"></div>

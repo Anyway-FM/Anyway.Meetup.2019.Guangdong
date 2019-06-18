@@ -33,8 +33,6 @@ body{
 }
 /* ~Header */
 header{
-	background: #a66048 url('header.jpg') no-repeat center center;
-	transition: all .1s ease-out;
 	z-index: 10
 }
 .stage-2 header{
@@ -48,15 +46,47 @@ header{
 	visibility: hidden;
 }
 .scroll-up.stage-1 header{
-	animation: fade-in .2s ease-in both;
+	/* animation: fade-in .2s ease-in both; */
 }
 @keyframes fade-in {
 	0%{opacity: 0;}
 	100%{opacity: 1;pointer-events: auto;}
 }
+header > .inner{
+	width: 100%; height: 100%;
+	position: relative;
+}
+.wall{
+	background-image: url('header-bg.jpg');
+	transition: all .1s ease-out;
+}
+.tv{
+	position: fixed;
+	background: url('screen.gif') no-repeat center bottom;
+	background-size: contain;
+	height: 100vh;
+	width: 50vw;
+	bottom: 0;
+	transition: all .1s ease-out;
+}
+.stage-2 .tv{
+	background-color: #000;
+}
+.tv > .inner{
+	width: 100%;
+	height: 100%;
+	background: url('tv.png') no-repeat center bottom;
+	background-size: contain;
+}
+
+/* ~Opening */
 .opening{
 	background-image: url(op-bg-1.jpg);
+	background-color: #000;
 	z-index: 8;
+}
+.stage-2 .opening{
+	/* animation: fade-in .2s ease-out both; */
 }
 .opening > div{
 	opacity: 0;
@@ -128,22 +158,25 @@ header{
 }
 /* ~S3 */
 .s-3 > .inner{
-	text-align: left;
 }
 .s-3 img{
 	height: 100%;
 	transform: translateX(-200vw) scale(1.05);
+	left: 0; top: 0;
+	position: absolute;
 }
 .s-3 .in img{
 	transform: scale(1.05);
 }
 /* ~S4 */
 .s-4 > .inner{
-	text-align: right;
+	/* text-align: right; */
 }
 .s-4 img{
 	height: 100%;
 	transform: translateX(100vw) scale(1.05);
+	right: 0; bottom: 0;
+	position: absolute;
 }
 .s-4 .in img{
 	transform: scale(1.05);
@@ -155,7 +188,7 @@ header{
 .s-5 img{
 	width: 100%;
 	position: absolute;
-	bottom: 0; left: 0;
+	bottom: 0; right: 0;
 	transform: translateY(200vh) scale(1.05);
 }
 .s-5 .in img{
