@@ -19,29 +19,26 @@ var m = new Vue({
     windowHeight: 1000,
     lastScroll: 0,
     scrollDirection: 1,
-    tvOffsetX: 0,
     tvInitOffsetX: 200,
     tvFinalOffsetX: 176,
     tvOffsetY: 0,
-    tvFinalOffsetY: -60,
+    tvInitOffsetY: 0,
+    tvFinalOffsetY: -160,
     opBgNum: 0,
     mainBgColor: '7c0808',
-    mainScrollPageH: 900,
-    mainScrollGap: 200,
     mainScroll:0,
     bgColorList: ['7c0808','8a9eae','b96605']
   },
   watch: {
-    scrollY: function () {
-      if (this.stage == 1) {
-        if (this.landscape) {
-          // this.tvOffsetX = this.windowWidth / 2 +this.tvOffsetX
-        }
-        else {
-        }
-      }
-
-    },
+  //   scrollY: function () {
+  //     if (this.stage == 1) {
+  //       if (this.landscape) {
+  //       }
+  //       else {
+  //       }
+  //     }
+  //
+  //   },
     stage: function () {
       console.log("Changed Stage")
       if (this.stage == 2) {
@@ -73,12 +70,9 @@ var m = new Vue({
 
       if (y < this.headerScrollDistance) {
         this.headerScaleRatio = 1+ y / this.headerScrollDistance * (this.headerFinalScale - 1)
-        this.tvOffsetX = this.tvInitOffsetX + y / this.headerScrollDistance * this.tvFinalOffsetX
-        this.tvOffsetY = y / this.headerScrollDistance * this.tvFinalOffsetY
       }
       else {
         this.headerScaleRatio = this.headerFinalScale
-        this.tvOffsetX = this.tvFinalOffsetX
         this.tvOffsetY = this.tvFinalOffsetY
       }
 
@@ -87,6 +81,18 @@ var m = new Vue({
     swtichBgColor() {
       this.mainBgColor = bgColorList[Math.floor(Math.random() * bgColorList.length)]
       // console.log(m.mainBgColor)
+    },
+    checkInView(n) {
+      if (this.landscape) {
+        vDistance = this.windowHeight + 200
+      }
+      else {
+        vDistance = this.windowHeight - 100
+      }
+      if (this.mainScroll > (n-1) * vDistance  && this.mainScroll < n * vDistance ) {
+        return 'in'
+      }
+
     },
     toggleMute() {
       if (this.muted) {
@@ -114,7 +120,7 @@ function getSize(){
   m.windowHeight = window.innerHeight
   if (window.innerWidth>window.innerHeight) { //横屏
     m.landscape = true
-    m.tvInitOffsetX = window.innerWidth / 2 - 147
+    m.tvInitOffsetX = window.innerWidth / 4
     m.tvFinalOffsetX = window.innerWidth * -0.05
     console.log('TV Init Offset X: ' + m.tvInitOffsetX)
     m.headerFinalScale = window.innerWidth / ( window.innerHeight * m.smallScreenHPercent / m.smallScreenH * m.smallScreenW)
@@ -125,8 +131,7 @@ function getSize(){
     m.tvInitOffsetX = 0
     m.tvFinalOffsetX = window.innerWidth * -0.05 //屏幕中心位置在 TV 图片左 45% 处
   }
-  console.log(m.tvInitOffsetX)
-  console.log(m.tvFinalOffsetX)
+  console.log(m.headerFinalScale)
 }
 
 console.log("Let's start!")

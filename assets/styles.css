@@ -65,14 +65,15 @@ header > .inner{
 	background: url('screen.gif') no-repeat center bottom;
 	background-size: contain;
 	height: 100vh;
-	width: 70vw;
+	width: 100vw;
 	bottom: 0;
 	/* right: 0; */
 	left: 0;
 	transition: all .1s ease-out;
 }
 .portrait .tv{
-	width: 100vw;
+	width: 140vw;
+	left: -20vw;
 }
 .stage-2 .tv{
 	background-color: #000;
@@ -113,9 +114,13 @@ header > .inner{
 }
 .opening .op-logo{
 	background-image: url(op-logo.png);
+	background-size: contain;
 	z-index: 9;
 	opacity: 1;
 	/* animation: shaking 1s steps(8, start) infinite; */
+}
+.portrait .opening .op-logo{
+	background-position: 50% 38%;
 }
 /* ~Main */
 .main{
@@ -146,16 +151,24 @@ header > .inner{
 .section img{
 	display: block;
 	vertical-align: middle;
-	transition: transform .3s ease-out;
+	transition: transform .3s ease-out .1s;
 }
 /* ~S1 */
 .s-1 > .inner{
 	text-align: center;
 }
+.portrait .s-1 > .inner{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 .s-1 img{
 	height: 100%;
 	transform:  scale(0);
 	margin: 0 auto;
+}
+.portrait .s-1 img{
+	width: 90%; height: unset;
 }
 .s-1 .in img{
 	transform:  scale(1.05);
@@ -164,16 +177,27 @@ header > .inner{
 .s-2 > .inner{
 	text-align: center;
 }
+.portrait .s-2 > .inner{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 .s-2 img{
 	height: 100%;
 	transform: translateX(100vw) scale(1.05);
 	margin: 0 auto;
 }
+.portrait .s-2 img{
+	width: 100%; height: auto;
+}
 .s-2 .in img{
 	transform:  scale(1.05);
 }
 /* ~S3 */
-.s-3 > .inner{
+.portrait .s-3 > .inner{
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
 }
 .s-3 img{
 	height: 100%;
@@ -181,12 +205,21 @@ header > .inner{
 	left: 0; top: 0;
 	position: absolute;
 }
+.portrait .s-3 img{
+	left: unset; top: unset;
+	/* position: unset; */
+	height: auto;
+	width: 100%;
+	/* max-width: 100vw; */
+}
 .s-3 .in img{
 	transform: scale(1.05);
 }
 /* ~S4 */
-.s-4 > .inner{
-	/* text-align: right; */
+.portrait .s-4 > .inner{
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
 }
 .s-4 img{
 	height: 100%;
@@ -194,22 +227,59 @@ header > .inner{
 	right: 0; bottom: 0;
 	position: absolute;
 }
+.portrait .s-4 img{
+	left: unset; top: unset;
+	transform: translateY(100vh) scale(1.03);
+	height: auto;
+	width: 100%;
+}
 .s-4 .in img{
 	transform: scale(1.03);
 }
 /* ~S5 */
-.s-5 > .inner{
-	text-align: right;
-}
 .s-5 img{
 	width: 100%;
 	position: absolute;
 	bottom: 0; right: 0;
 	transform: translateY(200vh) scale(1.05);
 }
+.portrait .s-5 img{
+	width: 140%;
+}
 .s-5 .in img{
 	transform: scale(1.05);
 }
+/* ~S6 */
+.s-6 > .inner{
+	text-align: center;
+}
+.s-6 img{
+	height: 100%;
+	margin: 0 auto;
+	/* position: absolute; */
+	/* bottom: 0; */
+	transform: translateY(200vh) scale(1.05);
+}
+.s-6 .in img{
+	transform: scale(1.05);
+}
+/* ~S7 */
+.s-7 > .inner{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.s-7 img{
+	width: 100%;
+	transform: translateX(-200vw) scale(1.05);
+}
+.portrait .s-7 img{
+	width: 100%; height: auto;
+}
+.s-7 .in img{
+	transform:  scale(1.05);
+}
+
 /* ~Mute */
 .mute-btn{
 	position: fixed;
@@ -236,3 +306,13 @@ header > .inner{
 	background-image: url(mute.png);
 }
 /* ~Indicator */
+.indicator{
+	position: fixed;
+	bottom: 1rem; left: 0;
+	width: 100vw;
+	height: 1rem;
+}
+.indicator > .inner{
+	background: #0f0;
+	width: 1rem; height: 1rem;
+}

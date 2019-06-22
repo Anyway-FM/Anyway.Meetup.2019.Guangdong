@@ -2,10 +2,12 @@
 <html lang="zh-cmn-Hans">
 <head>
 	<meta charset="UTF-8">
-	<title>Anyway.FM 设计杂谈 • UI 设计师 JJ 和 Leon 主播的设计播客 Podcast</title>
+	<title>咸淡談大会 • 设计播客 Anyway.FM 的 2019 年度线下活动</title>
 
-	<meta name="description" content="线下活动" />
+	<meta name="description" content="Anyway.FM 设计杂谈播客的线下活动来到了深圳和广州，在七月我们与你咸談咸談" />
 	<meta name="author" content="JJ Ying" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
 	<!-- <link rel="shortcut icon" href="assets/favicon.png" /> -->
 	<link rel="stylesheet" href="assets/styles.css" />
@@ -29,13 +31,13 @@
 <body>
 	<div class="wrapper" :class=" [scrollDirection > 0 ? 'scroll-down':'scroll-up' , landscape?'landscape':'portrait', 'stage-'+stage]">
 		<header  v-if="stage < 3" class="full">
-			<div class="full wall" :style="{transform: 'scale(' + ((headerScaleRatio - 1)*0.2+1) + ') translateX(' + (scrollY / headerScrollDistance * 0.7 * (tvFinalOffsetX - tvInitOffsetX)) +'px) translateY(' + tvOffsetY +'px)'}" >
+			<div class="full wall" :style="{transform: 'scale(' + ((headerScaleRatio - 1)*0.2+1) + ') translateX(' + (scrollY / headerScrollDistance * 0.7 * tvFinalOffsetX ) +'px) translateY(' + ( scrollY / headerScrollDistance * 0.2 * tvFinalOffsetY) +'px)'}" >
 				<div class="logo">
 					<img src="assets/logo.png"/>
 				</div>
 			</div>
 			<div class="tv" :style="{
-				transform: 'translateX(' + (tvInitOffsetX + scrollY / headerScrollDistance * (tvFinalOffsetX - tvInitOffsetX)) +'px) scale(' + headerScaleRatio + ') translateY(' + tvOffsetY +'px)'
+				transform: 'translateX(' + (tvInitOffsetX + scrollY / headerScrollDistance * (tvFinalOffsetX - tvInitOffsetX)) +'px) scale(' + headerScaleRatio + ') translateY(' + (tvInitOffsetY + scrollY / headerScrollDistance * (tvFinalOffsetY - tvInitOffsetY)) +'px)'
 				}">
 				<div class="inner"></div>
 			</div>
@@ -48,9 +50,10 @@
 		</div>
 
 		<div class="full main" :style="{backgroundColor: '#'+mainBgColor}" v-if="stage > 1">
-			<div class="full section" v-for="n in 5" :class="'s-'+n">
-				<div class="inner"  :class=" mainScroll > (n-1) * ( mainScrollPageH + mainScrollGap ) && mainScroll < n * mainScrollPageH + ( n - 1) * mainScrollGap ? 'in':'' ">
-					<img :src="'assets/s-'+n+'.png'"/>
+			<div class="full section" v-for="n in 7" :class="'s-'+n">
+				<div class="inner"  :class="checkInView(n)">
+					<img :src="'assets/s-'+n+'.png'" v-if="landscape"/>
+					<img :src="'assets/m-'+n+'.png'" v-else/>
 				</div>
 			</div>
 		</div>
