@@ -134,11 +134,18 @@ header > .inner{
 .stage-3 .main{
 	opacity: 1;
 }
+.section{
+	pointer-events: none;
+}
+.s-6{
+	pointer-events: auto;
+}
 .section > .inner{
 	width: 100%;
 	height: 100%;
 	position: relative;
 	animation: shaking 1s steps(8, start) infinite;
+	pointer-events: none;
 }
 @keyframes shaking {
 	0%{transform: translate(-.5px,.5px) scale(1);}
@@ -184,7 +191,7 @@ header > .inner{
 }
 .s-2 img{
 	height: 100%;
-	transform: translateX(100vw) scale(1.05);
+	transform: translateX(300vw) scale(1.05);
 	margin: 0 auto;
 }
 .portrait .s-2 img{
@@ -201,7 +208,7 @@ header > .inner{
 }
 .s-3 img{
 	height: 100%;
-	transform: translateX(-200vw) scale(1.05);
+	transform: translateX(-300vw) scale(1.05);
 	left: 0; top: 0;
 	position: absolute;
 }
@@ -223,7 +230,7 @@ header > .inner{
 }
 .s-4 img{
 	height: 100%;
-	transform: translateX(100vw) scale(1.03);
+	transform: translateX(300vw) scale(1.03);
 	right: 0; bottom: 0;
 	position: absolute;
 }
@@ -244,24 +251,48 @@ header > .inner{
 	transform: translateY(200vh) scale(1.05);
 }
 .portrait .s-5 img{
-	width: 140%;
+	width: 150%;
 }
 .s-5 .in img{
 	transform: scale(1.05);
 }
 /* ~S6 */
-.s-6 > .inner{
-	text-align: center;
-}
 .s-6 img{
 	height: 100%;
 	margin: 0 auto;
-	/* position: absolute; */
-	/* bottom: 0; */
 	transform: translateY(200vh) scale(1.05);
 }
 .s-6 .in img{
 	transform: scale(1.05);
+}
+.portrait .s-6 > .inner{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+.portrait .s-6 > .inner a{
+	position: absolute;
+	display: block;
+	width: 50%;
+	height: 50%;
+	pointer-events: none;
+	opacity: 0;
+	z-index: 400;
+}
+.portrait .s-6 > .inner.in a{
+	opacity: 1;
+	pointer-events: auto;
+}
+.buy-sz{
+	bottom: 0; left: 0;
+}
+.buy-gz{
+	top: 0; right: 0;
+}
+.portrait .s-6 img{
+	width: 90%;
+	height: auto;
 }
 /* ~S7 */
 .s-7 > .inner{
@@ -271,7 +302,7 @@ header > .inner{
 }
 .s-7 img{
 	width: 100%;
-	transform: translateX(-200vw) scale(1.05);
+	transform: translateX(-300vw) scale(1.05);
 }
 .portrait .s-7 img{
 	width: 100%; height: auto;
@@ -279,7 +310,6 @@ header > .inner{
 .s-7 .in img{
 	transform:  scale(1.05);
 }
-
 /* ~Mute */
 .mute-btn{
 	position: fixed;
@@ -287,6 +317,9 @@ header > .inner{
 	z-index: 30;
 	transition: all .1s ease-in-out;
 	opacity: .4
+}
+.portrait .mute-btn{
+	right: 1rem; top: 1rem;
 }
 .stage-2 .mute-btn{
 	filter: grayscale(1) brightness(2);
@@ -315,4 +348,14 @@ header > .inner{
 .indicator > .inner{
 	background: #0f0;
 	width: 1rem; height: 1rem;
+}
+/* ~Mask */
+.mask{
+	background: url(texture.png);
+	pointer-events: none;
+	z-index: 300;
+	transition: opacity .12s ease-out;
+}
+.stage-1 .mask{
+	opacity: 0;
 }
