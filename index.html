@@ -2,7 +2,7 @@
 <html lang="zh-cmn-Hans">
 <head>
 	<meta charset="UTF-8">
-	<title>咸淡談大会 • 设计播客 Anyway.FM 的 2019 年度线下活动</title>
+	<title>咸谈大会 • 深圳 + 广州 • 设计播客 Anyway.FM 的深圳 + 广州线下活动</title>
 
 	<meta name="description" content="Anyway.FM 设计杂谈播客的线下活动来到了深圳和广州，在七月我们与你咸談咸談" />
 	<meta name="author" content="JJ Ying" />
@@ -12,23 +12,23 @@
 	<link rel="shortcut icon" href="assets/favicon.jpg" />
 	<link rel="stylesheet" href="assets/styles.css" />
 
-	<meta property="og:url" content="https://Anyway.FM">
+	<meta property="og:url" content="https://Anyway.FM/meetup-2019-guangdong/">
 	<meta property="og:type" content="website">
-	<meta property="og:title" content="{pagetitle}Anyway.FM 设计杂谈">
-	<meta property="og:description" content="{pagedesc}">
-	<meta property="og:image" content="{episodecover}">
+	<meta property="og:title" content="咸谈大会 • 深圳 + 广州">
+	<meta property="og:description" content="设计播客 Anyway.FM 的 2019 年度线下活动">
+	<meta property="og:image" content="https://s.anw.red/2019-guangdong/preview.jpg">
 
 	<meta name="twitter:card" content="summary" />
-	<meta name="twitter:description" content="{pagedesc}" />
-	<meta name="twitter:title" content="{pagetitle}Anyway.FM 设计杂谈" />
+	<meta name="twitter:description" content="设计播客 Anyway.FM 的 2019 年度线下活动" />
+	<meta name="twitter:title" content="咸谈大会 • 深圳 + 广州" />
 	<meta name="twitter:site" content="@anyway__fm" />
-	<meta name="twitter:image" content="{episodecover}" />
+	<meta name="twitter:image" content="https://s.anw.red/2019-guangdong/preview.jpg" />
 
 	<script src="assets/vue.js"></script>
 
 </head>
 <body>
-	<div class="wrapper" :class=" [scrollDirection > 0 ? 'scroll-down':'scroll-up' , landscape?'landscape':'portrait', 'stage-'+stage]" :style="{height: headerScrollDistance + opScrollDistance + mainPageH * 7 + 200 +'px'}">
+	<div class="wrapper" :class=" [scrollDirection > 0 ? 'scroll-down':'scroll-up' , landscape?'landscape':'portrait', 'stage-'+stage]" :style="{height: headerScrollDistance + opScrollDistance + mainPageH * 7 + 200 +'px'}" v-cloak>
 		<header  v-if="stage < 3" class="full">
 			<div class="full wall" :style="{transform: 'scale(' + (1+ scrollY / headerScrollDistance * (headerFinalScale - 1) * 0.7)  + ') translateX(' + (scrollY / headerScrollDistance * tvFinalOffsetX ) * 0.7 +'px) translateY(' + (scrollY / headerScrollDistance * tvFinalOffsetY ) * 0.7 +'px)'}" >
 				<div class="logo">
