@@ -109,6 +109,7 @@ function getSize(){
   }
   else { //竖屏
     m.landscape = false
+    m.opScrollDistance = 850
     m.headerFinalScale = 1 / m.smallScreenHPercent
     m.tvInitOffsetX = 0
     m.tvFinalOffsetX = window.innerWidth * 0.052 * 1.4 //屏幕中心位置在 TV 图片左 45% 处，图片拉伸至 140vw
