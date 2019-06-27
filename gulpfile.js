@@ -1,10 +1,12 @@
 var gulp = require('gulp'), gulpLoadPlugins = require('gulp-load-plugins'), plugins = gulpLoadPlugins();
 
-var cdnUrl = [
-	[ 'js/vue.js', 'https://s.anw.red/js/vue.min.js' ],
-	[ '../images/', 'https://s.anw.red/anyway.fm/' ],
-	[ '../assets/', 'https://s.anw.red/anyway.fm/' ],
-	[ './images/', 'https://s.anw.red/anyway.fm/' ]
+var htmlReplace = [
+	[ 'assets/vue.js', 'https://s.anw.red/js/vue.min.js' ],
+	[ 'assets/', 'https://s.anw.red/2019-guangdong/' ]
+];
+
+var cssReplace = [
+	[ 'url(', 'url(https://s.anw.red/2019-guangdong/' ]
 	// [ '\'images/', '\'https://s.anw.red/anyway.fm/' ],
 ];
 
@@ -15,7 +17,7 @@ gulp.task('default', function() {
       type: 'MD5',
       basePath: './'
     	}))
-		.pipe(plugins.batchReplace(cdnUrl))
+		.pipe(plugins.batchReplace(htmlReplace))
     .pipe(plugins.htmlmin({
 			collapseWhitespace: true,
 			removeComments: true
@@ -23,7 +25,6 @@ gulp.task('default', function() {
 		.pipe(gulp.dest('builds'));
 
 	gulp.src('assets/main.js')
-		.pipe(plugins.batchReplace(cdnUrl))
 		.pipe(plugins.stripDebug())
 		.pipe(plugins.minify({
 			ext:{
@@ -34,7 +35,7 @@ gulp.task('default', function() {
     .pipe(gulp.dest('builds'))
 
 	gulp.src('assets/styles.css')
-	.pipe(plugins.batchReplace(cdnUrl))
+	.pipe(plugins.batchReplace(cssReplace))
 	.pipe(plugins.cleanCss({compatibility: 'ie8'}))
   .pipe(gulp.dest('builds'));
 
