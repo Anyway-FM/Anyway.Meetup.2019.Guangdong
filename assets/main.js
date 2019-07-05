@@ -69,7 +69,7 @@ var m = new Vue({
         this.mainPageH = this.windowHeight + 200
       }
       else {
-        this.mainPageH = this.windowHeight - 100
+        this.mainPageH = this.windowHeight + 100
       }
       if (this.mainScroll > (n-1) * this.mainPageH  && this.mainScroll < n * this.mainPageH ) {
         return 'in'
@@ -80,6 +80,9 @@ var m = new Vue({
       if (this.muted) {
         this.muted = false
         bgm.muted = false
+        if (this.stage > 1) {
+          bgm.play()
+        }
       }
       else { //没有静音的状态
         this.muted = true
